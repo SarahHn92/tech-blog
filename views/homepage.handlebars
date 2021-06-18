@@ -3,3 +3,21 @@ THEN I am presented with the homepage, which includes existing blog posts if any
 WHEN I click on the homepage option
 THEN I am taken to the homepage
 --}}
+<div>
+    {{#if blogpost.length }}
+        {{#each blogpost as |blogpost| }}
+        <div class="card">
+            <a href="/api/blogpost/{{ id }}">
+                <div class="card-header">
+                    <h4> {{ blogpost.title }} </h4>
+                </div>
+                <div class="card-body">
+                    <div class="card-text">
+                        <p> {{ blogpost.body }} </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {{/each}}
+    {{/if}}
+</div>
