@@ -2,3 +2,28 @@
 THEN I am taken to the dashboard and presented with any blog posts I have already created and the option to add a new blog post
 WHEN I click on the button to add a new blog post
 THEN I am prompted to enter both a title and contents for my blog post --}}
+
+{{!-- new blogpost --}}
+<div>
+    <button><a href="/newBlog"></a> Create a New Post</button>
+</div>
+
+{{!-- user blogposts --}}
+<div>
+    {{!-- {{#if blogpost.length }}
+        {{#each blogpost as |blogpost| }}
+        <div class="card">
+            <a href="/api/blogpost/{{ id }}">
+                <div class="card-header">
+                    <h4> {{ blogpost.title }} </h4>
+                </div>
+                <div class="card-body">
+                    <div class="card-text">
+                        <p> {{ blogpost.body }} </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {{/each}}
+    {{/if}} --}}
+</div>
