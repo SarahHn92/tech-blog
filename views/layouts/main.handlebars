@@ -4,19 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
     <title>SH-Tech</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li>Home</li>
-                <li>Dashboard</li>
-                <li>Sign Up</li>
-                <li>Sign In</li>
-            </ul>
-        </nav>
-    </header>
+<div class="container-fluid">
+   <nav id="navbar" class="navbar navbar-fixed-top affix">
+        <ul class="nav navbar-nav navbar-right">
+            <a href="/">Home</a>
+            {{#if logged_in}}
+                    <a href="/dash/user/{{id}}">Dashboard</a>
+                    <button class="nav-link" id="sign-out">Sign Out</button>
+                {{else}}
+                    <a href="/signup">Sign Up</a>
+                    <a href="/login">Sign In</a>
+            {{/if}}
+        </ul>
+    </nav> 
+</div>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">SH-Tech Blog</h1>
+    </div>
+</div>
+
+
+<main>
+    {{{ body }}}
+</main>
+
+{{#if logged_in}}
+<script src="/js/logout.js"></script>
+{{/if}}
 </body>
 </html>
 
