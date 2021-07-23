@@ -4,6 +4,9 @@ const sequelize = require('../config/connection');
 
 class User extends Model {
     // log in/check password
+    checkPassword(loginPw) {
+        return bcrypt.compareSync(loginPw, this.password);
+      }
 }
 
 User.init(
@@ -19,21 +22,41 @@ User.init(
             allowNull: false,
             unique: true
         },
-        // password: {
-
-        // }
-        
-    },
-    // HOOKS
-    // Beofre create
-    // before update
-    {
-        sequelize,
-        timestamps: true,
-        freezeTableName: true,
-        underscored: true,
-        modelName: 'user'
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true,
+            validate: {
+              isEmail: true,
+            },
+        },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+            len: [6],
+            }
         }
+    },
+    {
+        // Before create
+    hooks: {
+        beforeCreate: async (newUserData) => {
+            newUserData.password = await bcrypt.hash(newUserData.password, 10);
+            return newUserData;
+        },
+        // Before update
+        beforeUpdate: async (updatedUserData) => {
+            updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+            return updatedUserData;
+        },
+    },
+    sequelize,
+    timestamps: true,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'user'
+}
 );
 
 module.exports(User);
