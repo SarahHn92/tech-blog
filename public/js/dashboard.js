@@ -21,3 +21,18 @@ const newFormHandler = async (event) => {
         }
     }
 };
+
+const deleteBtnHandler = async (event) => {
+    if (event.target.hasAttribute('data-id'));
+
+    const response = await fetch(`/api/dashboard/${id}`, {
+        method: 'DELETE'
+    });
+
+    if (response.ok) {
+        document.location.replace('/dashboard');
+    } else {
+        alert('Failed to delete!');
+    }
+};
+
