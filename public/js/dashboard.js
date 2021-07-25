@@ -36,3 +36,10 @@ const deleteBtnHandler = async (event) => {
     }
 };
 
+document
+  .querySelector('.newPostForm')
+  .addEventListener('submit', newFormHandler);
+
+document
+  .querySelector('.blogList')
+  .addEventListener('click', delButtonHandler);
