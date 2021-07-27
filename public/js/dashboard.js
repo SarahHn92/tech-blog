@@ -42,4 +42,4 @@ document
 
 document
   .querySelector('.blogList')
-  .addEventListener('click', delButtonHandler);
+  .addEventListener('click', deleteBtnHandler);
