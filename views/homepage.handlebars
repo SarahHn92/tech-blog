@@ -3,21 +3,28 @@ THEN I am presented with the homepage, which includes existing blog posts if any
 WHEN I click on the homepage option
 THEN I am taken to the homepage
 --}}
-<div>
-    {{#if blogpost.length }}
+{{#if blogpost.length }}
+<section id="blogpost">
+    <div class="blogTitle">
         {{#each blogpost as |blogpost| }}
-        <div class="card">
-            <a href="/api/blogpost/{{ id }}">
-                <div class="card-header">
-                    <h4> {{ blogpost.title }} </h4>
-                </div>
-                <div class="card-body">
-                    <div class="card-text">
-                        <p> {{ blogpost.body }} </p>
-                    </div>
-                </div>
-            </a>
-        </div>
+        <h1> {{ blogpost.title }} </h1>
+    </div>
+    <div class="blogDeets">
+        <p> {{ blogpost.date }}, {{ user.name }} </p>
+    </div>
+    <div id="blogBody">
+        <p> {{ blogpost.body }}</p>
+        <button id="deletePost">Delete post</button>
         {{/each}}
+    </div>
+    
+    {{#if comment.length }}
+    <div id="commentSection">
+        {{#each comment as |comment| }}
+        <p id="eachComment"> {{ comment.body }} -{{ user.name }}</p>
+        <button id="commentDelete">DELETE comment</button>
+        {{/each}}
+    </div> 
     {{/if}}
-</div>
+</section>
+{{/if}}

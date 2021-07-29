@@ -1,3 +1,5 @@
+const { doc } = require("prettier");
+
 const newFormHandler = async (event) => {
     event.preventDefault();
 
@@ -35,6 +37,12 @@ const deleteBtnHandler = async (event) => {
         alert('Failed to delete!');
     }
 };
+
+const addComment = async (event) => {
+    event.preventDefault();
+    
+    const post_id = document.querySelector
+}
 
 document
   .querySelector('.newPostForm')
