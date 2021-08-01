@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
                 },
                 {
                     model: Comment,
-                    attributes: ['date', 'body']
+                    attributes: ['date', 'body', 'user_id']
                 }
             ]
         });
@@ -26,3 +26,42 @@ router.get('/', async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+router.get('/dash', (req, res) => {
+    try {
+        const userInfo = await User.findByPk(req.session.user_id, {
+            attributes: { exclude: ['password'] },
+            include : [ { model: Post }]
+        });
+        
+        const user = userInfo.get({ plain: true });
+
+        res.render('dash', {
+            ...user,
+            logged_in: true
+        });
+    }    
+    catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+router.get('/login', (req, res) => {
+    if (req.session.logged_in) {
+      res.redirect('/dash');
+      return;
+    }
+  
+    res.render('login');
+  });
+  
+  router.get('/signup', (req, res) => {
+    // If the user is already logged in, redirect the request to another route
+    if (req.session.logged_in) {
+      res.redirect('/profile');
+      return;
+    }
+  
+    res.render('signup');
+  });
+  
