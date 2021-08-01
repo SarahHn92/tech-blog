@@ -41,8 +41,25 @@ const deleteBtnHandler = async (event) => {
 const addComment = async (event) => {
     event.preventDefault();
     
-    const post_id = document.querySelector
-}
+    const postId = document.querySelector('#addCommentBtn').getAttribute('data-id');
+    const comment = document.querySelector('#addComment').value.trim();
+
+    if (postId && comment) {
+        const response = await fetch('/api/comment/', {
+            method: 'POST',
+            body: JSON.stringify({ postId, comment }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (response.ok) {
+            document.location.reload();
+        } else {
+            alert(response.status)
+        }
+    }
+};
 
 document
   .querySelector('.newPostForm')

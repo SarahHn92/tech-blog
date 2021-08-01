@@ -9,18 +9,20 @@ THEN I am prompted to enter both a title and contents for my blog post --}}
 </div>
 
 {{!-- user blogposts --}}
-{{#if blogpost.length }}
+{{#if post.length }}
 <section id="blogpost">
     <div class="blogTitle">
-        {{#each blogpost as |blogpost| }}
-        <h1> {{ blogpost.title }} </h1>
+        {{#each post as |post| }}
+        <h1> {{ post.title }} </h1>
     </div>
     <div class="blogDeets">
-        <p> {{ blogpost.date }}, {{ user.name }} </p>
+        <p> {{ post.date }}, {{ user.name }} </p>
     </div>
     <div id="blogBody">
-        <p> {{ blogpost.body }}</p>
-        <button id="deletePost">Delete post</button>
+        <p> {{ post.body }}</p>
+        <button data-id="{{ post.id }}" id="deletePost">Delete post</button>
+        <textarea name="comment" id="addComment" cols="30" rows="2"></textarea>
+        <button data-id="{{ id }}" id="addCommentBtn">Add Comment</button>
         {{/each}}
     </div>
     
@@ -28,7 +30,6 @@ THEN I am prompted to enter both a title and contents for my blog post --}}
     <div id="commentSection">
         {{#each comment as |comment| }}
         <p id="eachComment"> {{ comment.body }} -{{ user.name }}</p>
-        <button id="commentDelete">DELETE comment</button>
         {{/each}}
     </div> 
     {{/if}}
