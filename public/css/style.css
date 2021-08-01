@@ -1,0 +1,25 @@
+body {
+    background-color: #1F1E21;
+    color: #FFD375;
+}
+
+#navbar {
+    display: flex;
+    background-color: #FEC155;
+}
+
+.navbar-nav {
+    display: flex;
+}
+
+#navbar a {
+    flex-direction: row;
+}
+
+#jumbotron {
+    background-color: #8399A5;
+}
+
+.display_4 {
+    background-color: #8399A5;
+}
