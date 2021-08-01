@@ -3,26 +3,29 @@ THEN I am presented with the homepage, which includes existing blog posts if any
 WHEN I click on the homepage option
 THEN I am taken to the homepage
 --}}
-{{#if post.length }}
+
 <section id="blogpost">
-    <div class="blogTitle">
-        {{#each post as |post| }}
-        <h1> {{ post.title }} </h1>
+    {{#if Post.length }}
+    <div>
+        <div class="blogTitle">
+            {{#each Post as |Post| }}
+            <h1> {{ Post.title }} </h1>
+        </div>
+        <div class="blogDeets">
+            <p> {{ format_date Post.date }}, {{ User.username }} </p>
+        </div>
+        <div id="blogBody">
+            <p> {{ Post.body }}</p>
+            {{/each}}
+        </div>
+        
+        {{!-- {{#if comment.length }}
+        <div id="commentSection">
+            {{#each comment as |comment| }}
+            <p id="eachComment"> {{ comment.body }} -{{ user.name }}</p>
+            {{/each}}
+        </div> 
+        {{/if}} --}}
     </div>
-    <div class="blogDeets">
-        <p> {{ format_date post.date }}, {{ user.name }} </p>
-    </div>
-    <div id="blogBody">
-        <p> {{ post.body }}</p>
-        {{/each}}
-    </div>
-    
-    {{#if comment.length }}
-    <div id="commentSection">
-        {{#each comment as |comment| }}
-        <p id="eachComment"> {{ comment.body }} -{{ user.name }}</p>
-        {{/each}}
-    </div> 
     {{/if}}
 </section>
-{{/if}}

@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
             include: [
                 {
                     model: User,
-                    attributes: ['name']  
+                    attributes: ['username']  
                 },
                 {
                     model: Comment,
@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/dash', (req, res) => {
+router.get('/dash', async (req, res) => {
     try {
         const userInfo = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password'] },
@@ -63,4 +63,5 @@ router.get('/login', (req, res) => {
   
     res.render('signup');
   });
-  
+
+  module.exports = router;
