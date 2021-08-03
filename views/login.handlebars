@@ -2,17 +2,19 @@
 THEN I am prompted to enter my username and password --}}
 <div class="container">
     <div class="justify-content-center">
-        <form class= action="">
+        <form id="login-form">
             <div>
                 <h3>Sign In!</h3>
             </div>
             <div>
-                <input id="email-login" type="text" placeholder="Username">
-                <input id="password-login" type="password" placeholder="Password">
+                <input id="login_email" type="text" placeholder="Username">
+                <input id="login_password" type="password" placeholder="Password">
             </div>
             <div>
-                <input class="submit" id="submit" type="submit" value="Sign In!">
+                <button type="submit">Sign in!</button>
             </div>
         </form>
     </div>
 </div>
+
+<script src="/js/login.js"></script>

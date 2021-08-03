@@ -5,27 +5,25 @@ THEN I am taken to the homepage
 --}}
 
 <section id="blogpost">
-    {{#if Post.length }}
     <div>
         <div class="blogTitle">
-            {{#each Post as |Post| }}
-            <h1> {{ Post.title }} </h1>
+            {{#each posts as |post| }}
+            <h1> {{ post.title }} </h1>
         </div>
         <div class="blogDeets">
-            <p> {{ format_date Post.date }}, {{ User.username }} </p>
+            <p> {{ format_date post.date }}, {{ user.username }} </p>
         </div>
         <div id="blogBody">
-            <p> {{ Post.body }}</p>
+            <p> {{ post.body }}</p>
             {{/each}}
         </div>
         
-        {{!-- {{#if comment.length }}
+        {{#if comment.length }}
         <div id="commentSection">
             {{#each comment as |comment| }}
             <p id="eachComment"> {{ comment.body }} -{{ user.name }}</p>
             {{/each}}
         </div> 
-        {{/if}} --}}
+        {{/if}}
     </div>
-    {{/if}}
 </section>
