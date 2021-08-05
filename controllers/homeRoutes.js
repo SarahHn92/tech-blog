@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/dash', async (req, res) => {
+router.get('/dash', withAuth, async (req, res) => {
     try {
         const userInfo = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password'] },

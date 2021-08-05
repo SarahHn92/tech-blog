@@ -9,7 +9,6 @@ THEN I am prompted to enter both a title and contents for my blog post --}}
 </div>
 
 {{!-- user blogposts --}}
-{{#if post.length }}
 <section id="blogpost">
     <div class="blogTitle">
         {{#each post as |post| }}
@@ -34,4 +33,3 @@ THEN I am prompted to enter both a title and contents for my blog post --}}
     </div> 
     {{/if}}
 </section>
-{{/if}}

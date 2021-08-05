@@ -8,7 +8,7 @@ const newFormHandler = async (event) => {
     const description = document.querySelector('#blogDesc').value.trim();
 
     if (name && body && description) {
-        const response = await fetch(`/api/dashboard`, {
+        const response = await fetch(`/api/dash`, {
             method: 'POST',
             body: JSON.stringify({ name, body, description }),
             headers: {
@@ -17,7 +17,7 @@ const newFormHandler = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace('/dashboard');
+            document.location.replace('/dash');
         } else {
             alert('Blogpost failed to compile!');
         }
@@ -27,12 +27,12 @@ const newFormHandler = async (event) => {
 const deleteBtnHandler = async (event) => {
     if (event.target.hasAttribute('data-id'));
 
-    const response = await fetch(`/api/dashboard/${id}`, {
+    const response = await fetch(`/api/dash/${id}`, {
         method: 'DELETE'
     });
 
     if (response.ok) {
-        document.location.replace('/dashboard');
+        document.location.replace('/dash');
     } else {
         alert('Failed to delete!');
     }

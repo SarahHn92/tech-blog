@@ -27,7 +27,7 @@ const signupFormHandler = async (event) => {
   const password = document.querySelector('#signupPassword').value.trim();
 
   if (username && email && password) {
-    const response = await fetch('/api/users', {
+    const response = await fetch('/api/user', {
       method: 'POST',
       body: JSON.stringify({ username, email, password }),
       headers: { 'Content-Type': 'application/json' },
@@ -40,10 +40,15 @@ const signupFormHandler = async (event) => {
     }
   }
 };
+console.log(document.getElementById("login-form"));
 
-document
-  .getElementById('login-form')
-  .addEventListener('submit', loginFormHandler);
+if (document
+  .getElementById('login-form')) {
+    document.getElementById('login-form').addEventListener('submit', loginFormHandler);
+}
+
+
+  
 
 document
   .getElementById('signup-form')
