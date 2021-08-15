@@ -10,6 +10,7 @@ THEN I am prompted to enter both a title and contents for my blog post --}}
 
 {{!-- user blogposts --}}
 <section id="blogpost">
+    {{#if post.length}}
     <div class="blogTitle">
         {{#each post as |post| }}
         <h1> {{ post.title }} </h1>
@@ -24,6 +25,7 @@ THEN I am prompted to enter both a title and contents for my blog post --}}
         <button data-id="{{ id }}" id="addCommentBtn">Add Comment</button>
         {{/each}}
     </div>
+    {{/if}}
     
     {{#if comment.length }}
     <div id="commentSection">
