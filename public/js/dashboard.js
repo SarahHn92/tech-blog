@@ -1,5 +1,3 @@
-const { doc } = require("prettier");
-
 const newFormHandler = async (event) => {
     event.preventDefault();
 
@@ -9,7 +7,7 @@ const newFormHandler = async (event) => {
     if (name && body) {
         const response = await fetch(`/api/dash`, {
             method: 'POST',
-            body: JSON.stringify({ name, body, description }),
+            body: JSON.stringify({ name, body }),
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -60,10 +58,11 @@ const addComment = async (event) => {
     }
 };
 
-document
-  .querySelector('.newPostForm')
-  .addEventListener('submit', newFormHandler);
 
-document
-  .querySelector('.blogList')
-  .addEventListener('click', deleteBtnHandler);
+if (document.querySelector('.newPostForm')) {
+    document.querySelector('.newPostForm').addEventListener('submit', newFormHandler);
+}
+
+if (document.querySelector('#deletePost')) {
+    document.querySelector('#deletePost').addEventListener('click', deleteBtnHandler);
+}
