@@ -1,20 +1,20 @@
 const newFormHandler = async (event) => {
     event.preventDefault();
 
-    const name = document.querySelector('#blogName').value.trim();
-    const body= document.querySelector('#blogBody').value.trim();
+    const blogName = document.querySelector('#blogName').value.trim();
+    const blogBody= document.querySelector('#blogBody').value.trim();
 
-    if (name && body) {
+    if (blogName && blogBody) {
         const response = await fetch(`/api/dash`, {
             method: 'POST',
-            body: JSON.stringify({ name, body }),
+            body: JSON.stringify({ blogName, blogBody }),
             headers: {
                 'Content-Type': 'application/json'
             }
         });
 
         if (response.ok) {
-            document.location.replace('/dash');
+            document.location.reload();
         } else {
             alert('Blogpost failed to compile!');
         }
@@ -29,7 +29,7 @@ const deleteBtnHandler = async (event) => {
     });
 
     if (response.ok) {
-        document.location.replace('/dash');
+        document.location.reload();
     } else {
         alert('Failed to delete!');
     }
