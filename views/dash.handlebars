@@ -4,15 +4,29 @@ WHEN I click on the button to add a new blog post
 THEN I am prompted to enter both a title and contents for my blog post --}}
 
 {{!-- new blogpost --}}
-<div id="createPostBtn">
-    <button><a href="/newBlog"></a> Create a New Post</button>
-</div>
+<div class="row mt-4">
+  <div class="col-md-6">
+    <h3>Enter a new blogpost:</h3>
+
+    <form class="form new-blog-form">
+      <div class="form-group">
+        <label for="blog-title">Blogpost Title:</label>
+        <input class="form-input" type="text" id="blog-title" name="blog-title" />
+      </div>
+      <div class="form-group">
+        <label for="blog-desc">Post:</label>
+        <textarea class="form-input" id="blog-body" name="blog-body"></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Create</button>
+      </div>
+    </form>
+  </div>
 
 {{!-- user blogposts --}}
 <section id="blogpost">
-    {{#if post.length}}
     <div class="blogTitle">
-        {{#each post as |post| }}
+        {{#each posts as |post| }}
         <h1> {{ post.title }} </h1>
     </div>
     <div class="blogDeets">
@@ -25,7 +39,6 @@ THEN I am prompted to enter both a title and contents for my blog post --}}
         <button data-id="{{ id }}" id="addCommentBtn">Add Comment</button>
         {{/each}}
     </div>
-    {{/if}}
     
     {{#if comment.length }}
     <div id="commentSection">
