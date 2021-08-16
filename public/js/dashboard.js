@@ -5,7 +5,7 @@ const newFormHandler = async (event) => {
     const blogBody= document.querySelector('#blogBody').value.trim();
 
     if (blogName && blogBody) {
-        const response = await fetch(`/api/dash`, {
+        const response = await fetch(`/api/posts`, {
             method: 'POST',
             body: JSON.stringify({ blogName, blogBody }),
             headers: {
@@ -24,7 +24,7 @@ const newFormHandler = async (event) => {
 const deleteBtnHandler = async (event) => {
     if (event.target.hasAttribute('data-id'));
 
-    const response = await fetch(`/api/dash/${id}`, {
+    const response = await fetch(`/api/posts/${id}`, {
         method: 'DELETE'
     });
 
@@ -42,7 +42,7 @@ const addComment = async (event) => {
     const comment = document.querySelector('#addComment').value.trim();
 
     if (postId && comment) {
-        const response = await fetch('/api/comment/', {
+        const response = await fetch('/api/comments', {
             method: 'POST',
             body: JSON.stringify({ postId, comment }),
             headers: {
