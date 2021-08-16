@@ -5,23 +5,24 @@ THEN I am prompted to enter both a title and contents for my blog post --}}
 
 {{!-- new blogpost --}}
 <div class="row mt-4">
-  <div class="col-md-6">
-    <h3>Enter a new blogpost:</h3>
+    <div class="col-md-6">
+        <h3>Enter a new blogpost:</h3>
 
-    <form class="form new-blog-form">
-      <div class="form-group">
-        <label for="blog-title">Blogpost Title:</label>
-        <input class="form-input" type="text" id="blog-title" name="blog-title" />
-      </div>
-      <div class="form-group">
-        <label for="blog-desc">Post:</label>
-        <textarea class="form-input" id="blog-body" name="blog-body"></textarea>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
-      </div>
-    </form>
-  </div>
+        <form class="form new-blog-form">
+            <div class="form-group">
+                <label for="blog-title">Blogpost Title:</label>
+                <input class="form-input" type="text" id="blogName" name="blogName" />
+            </div>
+            <div class="form-group">
+                <label for="blog-desc">Post:</label>
+                <textarea class="form-input" id="blogBody" name="blogBody"></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Create</button>
+            </div>
+        </form>
+    </div>
+</div>
 
 {{!-- user blogposts --}}
 <section id="blogpost">
