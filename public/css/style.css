@@ -1,6 +1,14 @@
-body {
-    background-color: #1F1E21;
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
     color: #FFD375;
+  }
+
+
+#navContainer {
+    margin-top: 0;
+    width: 100%;
 }
 
 #navbar {
@@ -18,8 +26,40 @@ body {
 
 #jumbotron {
     background-color: #8399A5;
+    text-align: center;
 }
 
 .display_4 {
     background-color: #8399A5;
+}
+
+.inputArea {
+    margin-left: auto;
+}
+
+.form-input {
+    color: #000000;
+    width: 100%;
+    outline: none;
+    border: none;
+  }
+  
+#blogBody {
+    resize: none;
+    height: calc(100% - 150px);
+    padding-top: 15px;
+  }
+  
+#blogName {
+    height: 50px;
+    margin-top: 13px;
+    font-size: 3rem;
+  }
+
+#blogpost {
+    margin: auto;
+}
+
+.card {
+    margin-top: 30px;
 }

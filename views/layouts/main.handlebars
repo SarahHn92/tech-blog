@@ -9,29 +9,30 @@
     <title>SH-Tech</title>
 </head>
 <body>
-<div class="container-fluid">
-   <nav id="navbar" class="navbar navbar-expand-lg">
-            <a class="navbar-brand" href="/">Home</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    {{#if logged_in}}
-                            <a class="nav-item nav-link" href="/dash">Dashboard</a>
-                            <button class="nav-link" id="sign-out">Sign Out</button>
-                        {{else}}
-                            <a  class="nav-item nav-link" href="/signup">Sign Up</a>
-                            <a class="nav-item nav-link" href="/login">Sign In</a>
-                    {{/if}} 
-                </div>
-            </div>  
-    </nav> 
-</div>
 
-<div id="jumbotron" class="jumbotron jumbotron-fluid">
-    
-        <h1 class="display-4">SH-Tech Blog</h1>
+
+<div class="container-fluid">
+    <nav id="navbar" class="navbar-fluid navbar-expand-lg">
+        <a class="navbar-brand" href="/">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                {{#if logged_in}}
+                        <a class="nav-item nav-link" href="/dash">Dashboard</a>
+                        <button class="nav-link" id="sign-out">Sign Out</button>
+                    {{else}}
+                        <a  class="nav-item nav-link" href="/signup">Sign Up</a>
+                        <a class="nav-item nav-link" href="/login">Sign In</a>
+                {{/if}} 
+            </div>
+        </div>  
+    </nav>
+    <div id="jumbotron" class="jumbotron jumbotron-fluid">
+       <h1 class="display-4">SH-Tech Blog</h1> 
+    </div> 
+        
     
 </div>
 

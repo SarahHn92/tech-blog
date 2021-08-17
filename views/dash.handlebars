@@ -4,49 +4,62 @@ WHEN I click on the button to add a new blog post
 THEN I am prompted to enter both a title and contents for my blog post --}}
 
 {{!-- new blogpost --}}
-<div class="row mt-4">
-    <div class="col-md-6">
-        <h3>Enter a new blogpost:</h3>
+<main class="container-fluid">
+    <div class="row">
+        <div class="col-4 inputArea">
+            <h3>Enter a new blogpost:</h3>
 
-        <form class="form newPostForm">
-            <div class="form-group">
-                <label for="blog-title">Blogpost Title:</label>
-                <input class="form-input" type="text" id="blogName" name="blogName" />
-            </div>
-            <div class="form-group">
-                <label for="blog-desc">Post:</label>
-                <textarea class="form-input" id="blogBody" name="blogBody"></textarea>
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary">Create</button>
-            </div>
-        </form>
-    </div>
-</div>
+            <form class="form newPostForm">
+                <div class="form-group">
+                    <input class="form-input" type="text" id="blogName" name="blogName" placeholder="Title"/>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-input" id="blogBody" name="blogBody" placeholder="Blog text"></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Create</button>
+                </div>
+            </form>
+        </div>
 
-{{!-- user blogposts --}}
-<section id="blogpost">
-    <div class="blogTitle">
-        {{#each posts as |post| }}
-        <h1> {{ post.title }} </h1>
-    </div>
-    <div class="blogDeets">
-        <p> {{ post.date }}, {{ user.username }} </p>
-    </div>
-    <div id="blogBody">
-        <p> {{ post.body }}</p>
-        <button data-id="{{ post.id }}" id="deletePost">Delete post</button>
-        <textarea name="comment" id="addComment" cols="30" rows="2"></textarea>
-        <button data-id="{{ id }}" id="addCommentBtn">Add Comment</button>
-        {{/each}}
-    </div>
+        {{!-- user blogposts --}}
+        <section id="blogpost" class="col-8">
+            {{#if posts.length}}
+            <div class="card text-center">
+                {{#each posts as |post| }}
+                <div class="card-header blogTitle">
+                    <h1> {{ post.title }} </h1>
+                </div>
+                <div class="card-body blogDeets">
+                    <h6 class="card-title"> {{ post.date }}, {{ user.username }} </h6>
+                    <div class="card-text">
+                        <p> {{ post.body }}</p> 
+                        <button class="btn btn-danger" type="submit" data-id="{{ post.id }}" id="deletePost">Delete post</button>
+                    </div>
+                    <form>
+                        <input type="text" name="comment" id="addComment" cols="30" rows="2"></input>
+                        <button class="btn btn-primary" type="submit" data-id="{{ id }}" id="addCommentBtn">Add Comment</button> 
+                    </form>
+                </div>
     
-    {{#if comment.length }}
-    <div id="commentSection">
-        {{#each comment as |comment| }}
-        <p id="eachComment"> {{ comment.body }} -{{ user.name }}</p>
-        {{/each}}
-    </div> 
-    {{/if}}
-</section>
+                    
+                    
+                    
+                    {{/each}}
+                {{/if}}
+                
+                {{#if comment.length }}
+                <div id="commentSection">
+                    {{#each comment as |comment| }}
+                    <p id="eachComment"> {{ comment.body }} -{{ user.name }}</p>
+                    {{/each}}
+                </div> 
+                {{/if}} 
+            </div>
+            
+        </section> 
+    </div>
+ 
+</main>
+
 <script src="./js/dashboard.js"></script>
