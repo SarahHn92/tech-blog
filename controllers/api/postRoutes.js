@@ -15,30 +15,6 @@ router.post('/', async (req, res) => {
     }
 });
 
-router.get('/', withAuth, async (req, res) => {
-  try {
-    const blogPosts = await Post.findAll({
-      include: [
-          {
-              model: User,
-              attributes: ['username']  
-          },
-          {
-              model: Comment,
-              attributes: ['date', 'body', 'user_id']
-          }
-      ]
-    });
-    const posts = blogPost.map((post) => post.get({ plain: true }));
-    console.log(posts)
-    res.render('dash', {
-        posts,
-        logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-})
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {
