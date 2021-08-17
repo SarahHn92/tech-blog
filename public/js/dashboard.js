@@ -21,48 +21,48 @@ const newFormHandler = async (event) => {
     }
 };
 
-const deleteBtnHandler = async (event) => {
-    if (event.target.hasAttribute('data-id'));
+// const deleteBtnHandler = async (event) => {
+//     if (event.target.hasAttribute('data-id'));
 
-    const response = await fetch(`/api/post/${id}`, {
-        method: 'DELETE'
-    });
+//     const response = await fetch(`/api/post/${id}`, {
+//         method: 'DELETE'
+//     });
 
-    if (response.ok) {
-        document.location.reload();
-    } else {
-        alert('Failed to delete!');
-    }
-};
+//     if (response.ok) {
+//         document.location.reload();
+//     } else {
+//         alert('Failed to delete!');
+//     }
+// };
 
-const addComment = async (event) => {
-    event.preventDefault();
+// const addComment = async (event) => {
+//     event.preventDefault();
     
-    const postId = document.querySelector('#addCommentBtn').getAttribute('data-id');
-    const comment = document.querySelector('#addComment').value.trim();
+//     const postId = document.querySelector('#addCommentBtn').getAttribute('data-id');
+//     const comment = document.querySelector('#addComment').value.trim();
 
-    if (postId && comment) {
-        const response = await fetch('/api/comments', {
-            method: 'POST',
-            body: JSON.stringify({ postId, comment }),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
+//     if (postId && comment) {
+//         const response = await fetch('/api/comments', {
+//             method: 'POST',
+//             body: JSON.stringify({ postId, comment }),
+//             headers: {
+//                 'Content-Type': 'application/json'
+//             }
+//         });
 
-        if (response.ok) {
-            document.location.reload();
-        } else {
-            alert(response.status)
-        }
-    }
-};
+//         if (response.ok) {
+//             document.location.reload();
+//         } else {
+//             alert(response.status)
+//         }
+//     }
+// };
 
 
 if (document.querySelector('.newPostForm')) {
     document.querySelector('.newPostForm').addEventListener('submit', newFormHandler);
 }
 
-if (document.querySelector('#deletePost')) {
-    document.querySelector('#deletePost').addEventListener('click', deleteBtnHandler);
-}
+// if (document.querySelector('#deletePost')) {
+//     document.querySelector('#deletePost').addEventListener('click', deleteBtnHandler);
+// }
